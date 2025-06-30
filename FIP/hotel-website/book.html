@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Now - Taheer Hotel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Book Your Stay</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="book.html">Book</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <form id="bookingForm" onsubmit="return showMessage()">
+      <label>Full Name:</label>
+      <input type="text" name="fullname" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" required>
+
+      <label>Phone Number:</label>
+      <input type="tel" name="phone" pattern="[0-9]{11}" required>
+
+      <label>Check-in Date:</label>
+      <input type="date" name="checkin" required>
+
+      <label>Check-out Date:</label>
+      <input type="date" name="checkout" required>
+
+      <label>Number of Guests:</label>
+      <input type="number" name="guests" min="1" max="10" required>
+
+      <label>Room Type:</label>
+      <select name="roomtype" required>
+        <option value="">--Select--</option>
+        <option value="single">Single</option>
+        <option value="double">Double</option>
+        <option value="suite">Suite</option>
+      </select>
+
+      <label>Special Requests:</label>
+      <textarea name="requests" rows="3"></textarea>
+
+      <button type="submit">Submit Booking</button>
+    </form>
+
+    <div id="messageBox" style="display:none;">
+      <p>Thank you for booking with us! We will contact you shortly to confirm your reservation.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Taheer Hotel. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showMessage() {
+      document.getElementById('bookingForm').style.display = 'none';
+      document.getElementById('messageBox').style.display = 'block';
+      return false; // prevent actual form submission
+    }
+  </script>
+</body>
+</html>
